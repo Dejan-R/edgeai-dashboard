@@ -1,0 +1,31 @@
+2026/01/15 08:25:38 CONFIG: Generated bcrypt hash from DASH_PASS (use DASH_PASS_HASH in production)
+2026/01/15 08:25:38 CONFIG: Dashboard auth configured for user 'admin' (bcrypt hash: true)
+2026/01/15 08:25:38 Database connected successfully
+2026/01/15 08:25:38 Database initialized, WebSocket service ready
+2026/01/15 08:25:38 Connected to MQTT broker
+2026/01/15 08:25:38 HTTP server running on 0.0.0.0:8080
+2026/01/15 08:25:42 WebSocket client connected
+2026/01/15 08:28:20 WebSocket client connected
+2026/01/15 08:29:57 Initiating graceful shutdown...
+2026/01/15 08:29:57 Shutdown complete
+2026/01/15 08:29:57 CONFIG: Generated bcrypt hash from DASH_PASS (use DASH_PASS_HASH in production)
+2026/01/15 08:29:57 CONFIG: Dashboard auth configured for user 'admin' (bcrypt hash: true)
+2026/01/15 08:29:57 Database connected successfully
+2026/01/15 08:29:57 Database initialized, WebSocket service ready
+2026/01/15 08:29:57 Connected to MQTT broker
+2026/01/15 08:29:57 HTTP server running on 0.0.0.0:8080
+2026/01/15 08:29:58 WebSocket client connected
+2026/01/15 08:29:12 CONFIG: Generated bcrypt hash from DASH_PASS (use DASH_PASS_HASH in production)
+2026/01/15 08:29:12 CONFIG: Dashboard auth configured for user 'admin' (bcrypt hash: true)
+2026/01/15 08:29:13 DB ping error:failed to connect to `user=edgeai database=edgeai`:
+	127.0.0.1:5432 (localhost): dial error: dial tcp 127.0.0.1:5432: connect: connection refused
+	[::1]:5432 (localhost): dial error: dial tcp [::1]:5432: connect: connection refused
+2026/01/15 08:29:19 CONFIG: Generated bcrypt hash from DASH_PASS (use DASH_PASS_HASH in production)
+2026/01/15 08:29:19 CONFIG: Dashboard auth configured for user 'admin' (bcrypt hash: true)
+2026/01/15 08:29:19 Database connected successfully
+2026/01/15 08:29:19 Database initialized, WebSocket service ready
+2026/01/15 08:29:19 Connected to MQTT broker
+2026/01/15 08:29:19 HTTP server running on 0.0.0.0:8080
+2026/01/15 08:29:36 WebSocket client connected
+2026/01/15 08:35:56 Initiating graceful shutdown...
+2026/01/15 08:35:56 Shutdown complete

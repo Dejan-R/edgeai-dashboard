@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edge AI Detecting Anomalies</title>
+  <meta name="description" content="Edge AI system for real-time monitoring and anomaly detection of industrial motors.">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="page-header" role="banner">
+  <div class="header-title">
+    <h1>Edge AI system for real-time monitoring and anomaly detection of industrial motors</h1>
+    <p class="subtitle">
+    Edge AI (nRF5340DK + nRF7002EK) → MQTT → Backend + DB → Dashboard
+    </p>
+  </div>
+  <div class="header-logo">
+    <img src="/static/logo.png" alt="EdgeAI Systems Logo" width="150" height="100">
+  </div>
+</header>
+
+  <div id="status-bar" role="status" aria-live="polite">
+    MQTT Broker: <span id="mqtt-status" aria-label="MQTT status">Checking...</span> | 
+    Database: <span id="db-status" aria-label="Database status">Checking...</span>
+  </div>
+
+<main class="dashboard-container" role="main">
+
+  <section class="faults-panel" aria-labelledby="faults-panel-title">
+    <h2 id="faults-panel-title">Identified Anomalies:</h2>
+    <div class="faults-panel-content" id="sensor-data" role="log" aria-live="polite"></div>
+  </section>
+
+  <section class="chart-panel" aria-labelledby="chart-panel-title">
+    <h2 id="chart-panel-title">Time-Discrete Anomalies</h2>
+    <div class="chart-panel-content">
+      <canvas 
+        id="faultChart" 
+        role="img" 
+        aria-label="Scatter graf prikazuje detektirane kvarove motora kroz vrijeme. Crvene točke označavaju kvarove.">
+      </canvas>
+    </div>
+  </section>
+
+</main>
+<template id="fault-template">
+  <div class="fault-entry">
+    <b class="fault-time"></b><br>
+    Status: <span class="status"></span>
+    Score: <span class="fault-score"></span>
+  </div>
+</template>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+<script src="/static/script.js"></script>
+</body>
+</html>

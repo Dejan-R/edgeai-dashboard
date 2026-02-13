@@ -1,0 +1,50 @@
+services:
+  db:
+    image: timescale/timescaledb:2.14.2-pg14
+    container_name: edgeai-db
+    environment:
+      POSTGRES_DB: edgeai
+      POSTGRES_USER: edgeai
+      POSTGRES_PASSWORD: edgeai
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./db/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U edgeai"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  mqtt:
+    image: eclipse-mosquitto:2
+    container_name: edgeai-mqtt
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mqtt/config/mosquitto.conf:/mosquitto/config/mosquitto.conf  
+    command: mosquitto -c /mosquitto/config/mosquitto.conf  
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: edgeai-backend
+    depends_on:
+      db:
+        condition: service_healthy 
+      mqtt:
+        condition: service_started
+    environment:
+      POSTGRES_URL: "postgres://edgeai:edgeai@db:5432/edgeai?sslmode=disable"
+      MQTT_BROKER: "tcp://mqtt:1883"
+      SERVER_ADDR: "0.0.0.0:8080"
+      DASH_USER: "admin"
+      DASH_PASS: "admin123"
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+volumes:
+  db-data:
